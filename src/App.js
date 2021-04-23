@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+
+export const is12Hour = () =>
+  !!new Intl.DateTimeFormat([], { hour: "numeric" }).format(0).match(/\s/)
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>
+        Browser languages:
+        <br />
+        <strong>{navigator.languages.join(", ")}</strong>
+      </p>
+      <p>
+        Locale-formatted time:
+        <br />
+        <strong>{new Date().toLocaleTimeString()}</strong>
+      </p>
+      <p>
+        Detected time format:
+        <br />
+        <strong>{is12Hour() ? "12-hour clock" : "24-hour clock"}</strong>
+      </p>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
