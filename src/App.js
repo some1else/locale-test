@@ -1,7 +1,9 @@
 import "./App.css"
+const testDate = new Date()
 
 export const is12Hour = () =>
-  !!new Intl.DateTimeFormat([], { hour: "numeric" }).format(0).match(/\s/)
+  testDate.toLocaleTimeString &&
+  testDate.toLocaleTimeString().match(/^[A-Z]+$/i)
 
 function App() {
   return (
