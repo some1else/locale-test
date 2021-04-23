@@ -2,8 +2,8 @@ import "./App.css"
 const testDate = new Date()
 
 export const is12Hour = () =>
-  testDate.toLocaleTimeString &&
-  testDate.toLocaleTimeString().match(/^[A-Z]+$/i)
+  !!testDate.toLocaleTimeString &&
+  testDate.toLocaleTimeString().match(/[A-Z]+/i)
 
 function App() {
   return (
